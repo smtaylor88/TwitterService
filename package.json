@@ -2,7 +2,7 @@
   "name": "twitter-service",
   "version": "0.0.1",
   "main": "app.js",
-  "private": true,
+  "mod": "DigitalSignTweeter",
   "scripts": {
     "start": "node app.js"
   },
