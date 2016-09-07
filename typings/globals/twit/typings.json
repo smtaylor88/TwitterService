@@ -1,0 +1,8 @@
+{
+  "resolution": "main",
+  "tree": {
+    "src": "https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/63e07fd004a8fdd8c9001c50f7f3c1336b298f3f/twit/twit.d.ts",
+    "raw": "registry:dt/twit#2.2.0+20160805080445",
+    "typings": "https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/63e07fd004a8fdd8c9001c50f7f3c1336b298f3f/twit/twit.d.ts"
+  }
+}

@@ -1,13 +1,15 @@
-﻿var app = require('express')()
-    , server = require('http').Server(app)
-    , io = require('socket.io').listen(server)
-    , Twit = require('twit')
-    , path = require('path')
-    , mongodb = require('mongodb')
-    , mongoose = require('mongoose');
+﻿'use strict';
 
-process.env.PORT = "8888";
-var port = process.env.PORT || 8888;
+var app = require('express')(),
+    server = require('http').Server(app),
+    io = require('socket.io').listen(server),
+    Twit = require('twit'),
+    path = require('path'),
+    mongodb = require('mongodb'),
+    mongoose = require('mongoose');
+
+process.env.PORT = "8001";
+var port = process.env.PORT || 8001;
 
 server.on('listening', function () {
     console.log('ok, server is running');
@@ -20,13 +22,13 @@ console.log('Application Listening on port %s', process.env.PORT);
 // mongod --dbpath="c:\users\steve\documents\visual studio 2015\projects\expressapp1\expressapp1\mongodb"
 // mongodb://<user>:<pass>@jello.modulusmongo.net:27017/anAhe2xu
 
-mongoose.connect('mongodb://localhost/tweet', function (err) {
-    if (err) {
-        console.log(err);
-    } else {
-        console.log('Connect to MongoDB.');
-    }
-});
+//mongoose.connect('mongodb://localhost/tweet', function (err) {
+//    if (err) {
+//        console.log(err);
+//    } else {
+//        console.log('Connect to MongoDB.');
+//    }
+//});
 
 // routing
 app.get('/', function (req, res) {
@@ -43,7 +45,7 @@ var T = new Twit({
     consumer_secret: 'QAdrEScuGVkkDKn0OPEYcScRpz7X36xzzbaSFrjrd21sJoOxZX',
     access_token: '1932331075-OivpoRGbgmoMMEh9Lvtg1x3mE74EJ5Gxxm4gTif',
     access_token_secret: 'PpP5hauNUhyT3RuAM7q5baSNhMDdZ2xGXNtb1gVSEa58W'
-})
+});
 
 function logArrayElements(element, index, arry) {
     console.log('Search Item ' + index + ': ' + element);
@@ -55,7 +57,7 @@ io.on('connection', function (socket) {
 
     // var stream = T.stream('statuses/filter', { locations: '-122.75,6.8,-121.75,37.8' }) // san francisco
     // var stream = T.stream('statuses/filter', { locations: '-122.11,45.8,-121.75,46.8' }) // tacoma
-    var stream = T.stream('statuses/filter', { track: watchList })
+    var stream = T.stream('statuses/filter', { track: watchList });
 
     stream.on('tweet', function (tweet) {
         var media;
@@ -81,3 +83,4 @@ io.on('connection', function (socket) {
 console.log('Down to the bottom...');
 
 module.exports = app;
+
