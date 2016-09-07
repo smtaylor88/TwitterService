@@ -20,7 +20,8 @@ console.log('Application Listening on port %s', process.env.PORT);
 // mongod --dbpath="c:\users\steve\documents\visual studio 2015\projects\expressapp1\expressapp1\mongodb"
 // mongodb://<user>:<pass>@jello.modulusmongo.net:27017/anAhe2xu
 
-mongoose.connect('mongodb://localhost/tweet', function (err) {
+//mongoose.connect('mongodb://localhost/tweet', function (err) {
+    mongoose.connect('mongodb://CaptiveDBAdmin:Captive123@jello.modulusmongo.net:27017/anAhe2xu', function (err) {
     if (err) {
         console.log(err);
     } else {
