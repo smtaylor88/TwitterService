@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Socket.IO Twitter Stream</title>
+
+    <script src="http://127.0.0.1:8888/socket.io/socket.io.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font: 13px Helvetica, Arial;
+        }
+
+        form {
+            background: #000;
+            padding: 3px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+            form input {
+                border: 0;
+                padding: 10px;
+                width: 90%;
+                margin-right: .5%;
+            }
+
+            form button {
+                width: 9%;
+                background: rgb(130, 224, 255);
+                border: none;
+                padding: 10px;
+            }
+
+        #messages {
+            list-style-type: none;
+            margin: 0;
+            padding: 2px 2px 2px 2px;
+        }
+
+            #messages li {
+                padding: 5px 10px;
+            }
+
+                #messages li:nth-child(odd) {
+                    background: #eee;
+                }
+    </style>
+
+    <script>
+        function loadImgs(item, index) {
+            $('#messages').prepend('<img height="300" width="420" src="' + item.media_url + '">');
+        }
+
+        var socket = io.connect('http://localhost:8888');
+        socket.on('stream', function (tweeter, tweet, user_image, dated, location, media) {
+            // alert(media);
+            if (media && media !== 'null' && media !== 'undefined') {
+                $('#messages').prepend('<br/><img src="' + user_image + '">  (' + tweeter + ') ***' + dated + '*** [' + location + '] ' + tweet + '<br/>' + media.forEach(loadImgs) + '<br/>');
+            }
+            else {
+                $('#messages').prepend('<br/><img src="' + user_image + '">  (' + tweeter + ') ***' + dated + '*** [' + location + '] ' + tweet + '<br/><br/><br/>');
+            }
+        });
+
+        $('form').submit(function () {
+            socket.emit('reset stream', $('#m').val());
+            $('#m').val('');
+            return false;
+        });
+    </script>
+
+</head>
+<body>
+    <form action="">
+        <input id="m" autocomplete="off" />
+        <button>Reset</button>
+    </form>
+
+    Here are some Tweets:
+
+    <ul id="messages"></ul>
+    <div id="tweetd"></div>
+</body>
+</html>
