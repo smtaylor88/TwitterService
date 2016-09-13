@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="http://localhost:8888/javascripts/tweetable.js"></script>
+    <style>
+    body {
+    margin: 0;
+    padding: 2em 0;
+    background: #232323;
+    font: 100% Arial, sans-serif;
+    }
+
+    #tweets {
+    width: 300px;
+    padding: 140px 1em 1em 1em;
+    background: #fff url(twitter.png) no-repeat 50% 10px;
+    border-radius: 12px;
+    color: #000;
+    margin: 0 auto;
+    }
+
+    #tweets h3 {
+    margin: 0;
+    padding: 10px 0;
+    text-align: center;
+    font: 2em 'Permanent Marker', sans-serif;
+    color: #232323;
+    }
+
+    #tweets-content {
+    width: 90%;
+    margin: 0 auto;
+    }
+
+    #tweets-content ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    }
+
+    #tweets-content ul li {
+    margin-bottom: 0.5em;
+    line-height: 1.3;
+    padding-left: 11px;
+    background: url(arrow.gif) no-repeat 0 4px;
+    }
+
+    #tweets-content ul li a {
+    color: #a40;
+    }
+
+    #tweets-content ul li small {
+    display: block;
+    font-style: italic;
+    }
+    </style>
+    <title></title>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#tweets').tweetable({ username: 'smtaylor88' });
+        });
+    </script>
+</head>
+<body>
+    <div id="tweets"></div>
+</body>
+</html>

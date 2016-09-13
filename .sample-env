@@ -1,0 +1,6 @@
+﻿TWITTER_CONSUMER_KEY=fake key
+TWITTER_CONSUMER_SECRET=fake secret
+TWITTER_ACCESS_TOKEN=fake access token
+TWITTER_ACCESS_SECRET=fake access secret
+PORT=fakeport
+MONGO_DB_PATH=fakepath
