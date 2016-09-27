@@ -29,7 +29,7 @@ console.log('Listening on port: %s', port);
 console.log('environment: %s', process.env.NODE_ENV);
 
 // Enter the following into command.com windows...to start mongodb on the local server
-// mongod --dbpath="c:\users\steve\documents\visual studio 2015\projects\expressapp1\expressapp1\mongodb"
+// mongod --dbpath="s:\mongodata"
 // mongodb://<user>:<pass>@jello.modulusmongo.net:27017/anAhe2xu
 
 //mongoose.connect('mongodb://localhost/tweet', function (err) {
